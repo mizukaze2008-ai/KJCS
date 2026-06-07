@@ -4,152 +4,118 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>11th room</title>
+<title>KJCS Portal</title>
 
 <style>
-
 body{
-    margin:0;
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+margin:0;
+font-family:sans-serif;
+background:linear-gradient(#f8f3e7,#e8dcc2);
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+}
 
-    font-family:-apple-system,BlinkMacSystemFont,sans-serif;
-
-    background:#f5f0e6;
-
-    background-image:
-      linear-gradient(rgba(0,0,0,.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,0,0,.03) 1px, transparent 1px);
-
-    background-size:40px 40px;
+.container{
+width:90%;
+max-width:600px;
 }
 
 .card{
-    width:90%;
-    max-width:420px;
-
-    background:rgba(255,255,255,.92);
-
-    border-radius:20px;
-
-    padding:35px;
-
-    text-align:center;
-
-    box-shadow:0 10px 30px rgba(0,0,0,.15);
+background:white;
+border:3px solid #8b6b3f;
+border-radius:20px;
+padding:30px;
+box-shadow:0 10px 20px rgba(0,0,0,.15);
 }
 
 h1{
-    color:#355c45;
-    margin-bottom:30px;
-    font-size:2.2rem;
+text-align:center;
+color:#4d3821;
+margin-bottom:30px;
 }
 
-input{
-    width:100%;
-    box-sizing:border-box;
-
-    padding:14px;
-
-    border-radius:12px;
-
-    border:1px solid #ccc;
-
-    font-size:16px;
+.button{
+display:block;
+text-decoration:none;
+text-align:center;
+padding:18px;
+margin:15px 0;
+background:#6b7f4f;
+color:white;
+font-size:18px;
+border-radius:12px;
 }
 
-button{
-    margin-top:15px;
-
-    width:100%;
-
-    padding:14px;
-
-    border:none;
-
-    border-radius:12px;
-
-    background:#355c45;
-
-    color:white;
-
-    font-size:16px;
-
-    cursor:pointer;
-}
-
-button:hover{
-    opacity:.9;
-}
-
-#error{
-    color:red;
-    margin-top:15px;
+.button:hover{
+opacity:.9;
 }
 
 .footer{
-    margin-top:25px;
-    font-size:12px;
-    color:#777;
+text-align:center;
+margin-top:20px;
+color:#555;
+font-size:14px;
 }
-
 </style>
 
 </head>
 
 <body>
 
+<div class="container">
+
 <div class="card">
 
-<h1>11th room</h1>
+<h1>KJCS Portal</h1>
 
-<input
-id="password"
-type="password"
-placeholder="Password">
+<a class="button" onclick="enterRoom()">11th room</a>
 
-<button onclick="login()">
-Enter
-</button>
+<a class="button" href="https://docs.google.com/forms/" target="_blank">
+Feedback
+</a>
 
-<p id="error"></p>
+<a class="button" onclick="adminLogin()">
+Admin
+</a>
 
 <div class="footer">
-Class Portal
+KJCS Student Portal
+</div>
+
 </div>
 
 </div>
 
 <script>
+function enterRoom(){
 
-function login(){
-
-const password =
-document.getElementById("password").value;
-
-if(password==="141"){
-
-sessionStorage.setItem(
-"roomAccess",
-"true"
+const pass=prompt(
+"11th room Password\n\nHint : 中学入学時の人数"
 );
 
+if(pass==="141"){
 location.href="room.html";
-
 }else{
-
-document.getElementById(
-"error"
-).textContent =
-"Password is incorrect";
-
+alert("Password incorrect");
 }
 
 }
 
+function adminLogin(){
+
+const pass=prompt(
+"Admin Password"
+);
+
+if(pass==="10139998kk"){
+location.href="admin.html";
+}else{
+alert("Password incorrect");
+}
+
+}
 </script>
 
 </body>
