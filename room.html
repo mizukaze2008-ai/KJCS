@@ -10,42 +10,94 @@
 <style>
 
 body{
-    margin:0;
-    padding:20px;
-    background:#f5f0e6;
-    font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+margin:0;
+font-family:sans-serif;
+background:linear-gradient(#f8f3e7,#e8dcc2);
+padding:20px;
 }
 
 .header{
-    text-align:center;
-    margin-bottom:30px;
+text-align:center;
+margin-bottom:20px;
 }
 
-h1{
-    color:#355c45;
+.header h1{
+color:#4d3821;
+margin:0;
 }
 
-.panel{
-    background:white;
-    max-width:900px;
-    margin:20px auto;
-    padding:20px;
-    border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,.1);
+.back{
+display:inline-block;
+margin-top:10px;
+text-decoration:none;
+color:white;
+background:#6b7f4f;
+padding:10px 15px;
+border-radius:10px;
+}
+
+.card{
+background:white;
+border:3px solid #8b6b3f;
+border-radius:20px;
+padding:20px;
+margin-bottom:20px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.card h2{
+margin-top:0;
+color:#4d3821;
 }
 
 img{
-    width:100%;
-    border-radius:10px;
+width:100%;
+border-radius:10px;
 }
 
-button{
-    padding:12px 20px;
-    border:none;
-    border-radius:10px;
-    background:#355c45;
-    color:white;
-    cursor:pointer;
+.feedback-btn{
+display:block;
+text-align:center;
+background:#6b7f4f;
+color:white;
+text-decoration:none;
+padding:15px;
+border-radius:12px;
+font-size:18px;
+}
+
+/* 電光掲示板 */
+
+.ticker{
+overflow:hidden;
+background:#2d2218;
+color:white;
+border-radius:10px;
+padding:12px;
+margin-bottom:20px;
+}
+
+.ticker-text{
+display:inline-block;
+white-space:nowrap;
+padding-left:100%;
+animation:scroll 20s linear infinite;
+font-weight:bold;
+}
+
+@keyframes scroll{
+0%{
+transform:translateX(0);
+}
+100%{
+transform:translateX(-100%);
+}
+}
+
+.footer{
+text-align:center;
+margin-top:30px;
+color:#666;
 }
 
 </style>
@@ -54,35 +106,71 @@ button{
 
 <body>
 
-<script>
-if(sessionStorage.getItem("roomAccess")!=="true"){
-location.href="index.html";
-}
-</script>
-
 <div class="header">
+
 <h1>11th room</h1>
+
+<a class="back" href="index.html">
+← KJCS Portal
+</a>
+
 </div>
 
-<div class="panel">
-<h2>📄 明日の連絡 "Tomorrow's contact"</h2>
+<!-- 電光掲示板 -->
 
-<img src="images/Tomorrow's contact.png">
+<div class="ticker">
+
+<div class="ticker-text">
+
+📢 本日のメッセージ：
+リリースしました。
+バグとかあれば、下のformもしくは個人でご連絡お願いします。
+
 </div>
 
-<div class="panel">
-<h2>🗓 週間予定表 "Week's schedule"</h2>
-
-<img src="images/週間予定表.png">
 </div>
 
-<div class="panel">
+<!-- 明日の連絡 -->
+
+<div class="card">
+
+<h2>📄 明日の連絡 "Tomorrow' contact"</h2>
+
+<img src="Tomorrow's contact.png"
+onerror="this.src='https://placehold.co/1200x800?text=Notice'">
+
+</div>
+
+<!-- 週間予定表 -->
+
+<div class="card">
+
+<h2>🗓 週間予定表 "Week's schedule</h2>
+
+<img src="images/週間予定表.png"
+onerror="this.src='https://placehold.co/1200x800?text=Schedule'">
+
+</div>
+
+<!-- Feedback -->
+
+<div class="card">
+
 <h2>📝 Feedback</h2>
 
-<a href="https://docs.google.com/forms/d/e/1FAIpQLSeJVtmoUJUsVIGgI0SsQIc3yML1fW-3XdwLZOL9wDHuJg6eeA/viewform?usp=header
-}" target="_blank">
-<button>Open Form</button>
+<a class="feedback-btn"
+href="https://docs.google.com/forms/d/e/1FAIpQLSeJVtmoUJUsVIGgI0SsQIc3yML1fW-3XdwLZOL9wDHuJg6eeA/viewform"
+target="_blank">
+
+Google Form を開く
+
 </a>
+
+</div>
+
+<div class="footer">
+
+KJCS Portal © 2026
 
 </div>
 
