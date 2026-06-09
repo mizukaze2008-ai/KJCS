@@ -162,10 +162,9 @@ margin:15px 0;
 
 <h2>💬 メッセージ</h2>
 
-<div class="message-box">
+<div class="message-box" id="messageBox">
 
-Test<br>
-Test
+読み込み中...
 
 </div>
 
@@ -177,32 +176,9 @@ Test
 
 <h2>📌 固定掲示板</h2>
 
-<div class="fixed-board">
+<div class="fixed-board" id="fixedBoard">
 
-<p>
-🎥 配信予定<br>
-日曜日 16:00～
-</p>
-
-<hr>
-
-<p>
-📢 連絡<br>
-Test
-</p>
-
-</div>
-
-</div>
-
-<!-- 明日の連絡 -->
-
-<div class="card">
-
-<h2>📄 明日の連絡 "Tomorrow' contact"</h2>
-
-<img src="images/Tomorrow's contact.png"
-onerror="this.src='https://placehold.co/1200x800?text=Notice'">
+読み込み中...
 
 </div>
 
@@ -238,6 +214,28 @@ Google Form を開く
 KJCS Portal © 2026
 
 </div>
+
+<script>
+
+fetch("message.txt")
+.then(response => response.text())
+.then(text => {
+document.getElementById(
+"messageBox"
+).innerHTML =
+text.replace(/\n/g,"<br>");
+});
+
+fetch("fixed.txt")
+.then(response => response.text())
+.then(text => {
+document.getElementById(
+"fixedBoard"
+).innerHTML =
+text.replace(/\n/g,"<br>");
+});
+
+</script>
 
 </body>
 </html>
